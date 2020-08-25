@@ -2,12 +2,12 @@ body {
   background-color: #225762;
   color: white;
   font-family: "Bree Serif", serif;
+   text-align: center;
 }
 
 .scores {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 5%;
   text-align: center;
 }
 
