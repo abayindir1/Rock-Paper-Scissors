@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const options = document.querySelectorAll(".option-img");
   const result = document.getElementById("result");
   const modal = document.getElementsByClassName("modal")[0];
+  const uScore = document.getElementById("user-score");
+  const cScore = document.getElementById("computer-score");
 
   var userScore = 0;
   var computerScore = 0;
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "initial";
         result.innerHTML = `
         <h1 class="text-win">It's a Draw!</h1>
-          
+        <img class="modal-img" src="./images/draw.jpg" alt="draw" />
           <p>Computer Chose <strong>${cPick}</strong></p>
           <p>You Chose <strong>${uPick}</strong></p>`
         console.log("bum");
@@ -37,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "initial";
         result.innerHTML = `
         <h1 class="text-win">You Lost!</h1>
-          
+        <img class="modal-img" src="./images/lost.jpg" alt="lost" />
         <p>Computer Chose <strong>${cPick}</strong></p>
         <p>You Chose <strong>${uPick}</strong></p>`
         console.log("you lost");
@@ -47,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.style.display = "initial";
         result.innerHTML = `
         <h1 class="text-win">You Won!</h1>
-          
+        <img class="modal-img" src="./images/dab.png" alt="dab" />
         <p>Computer Chose <strong>${cPick}</strong></p>
         <p>You Chose <strong>${uPick}</strong></p>`
         console.log("you won");
@@ -55,4 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     // console.log(option)
   });
+
+  function clearModal(e){
+    if(e.target === modal){
+      modal.style.display="none"
+    }
+  }
+  window.addEventListener('click', clearModal)
 });
