@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const options = document.querySelectorAll(".option-img");
   const result = document.getElementById("result");
   const modal = document.getElementsByClassName("modal")[0];
-  const uScore = document.getElementById("user-score");
+  const uScore = document.getElementsByClassName("user-score")[0];
   const cScore = document.getElementById("computer-score");
 
   var userScore = 0;
@@ -42,6 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <img class="modal-img" src="./images/lost.jpg" alt="lost" />
         <p>Computer Chose <strong>${cPick}</strong></p>
         <p>You Chose <strong>${uPick}</strong></p>`
+        cScore.innerHTML = `
+        <h2>Computer Score</h2>
+        <h3 id="computer-score">${computerScore}</h3>
+        `
         console.log("you lost");
       } else {
         // if user wins
