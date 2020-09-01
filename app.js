@@ -27,26 +27,26 @@ document.addEventListener("DOMContentLoaded", () => {
         <h1 class="text-win">It's a Draw!</h1>
         <img class="modal-img" src="./images/draw.jpg" alt="draw" />
           <p>Computer Chose <strong>${cPick}</strong></p>
-          <p>You Chose <strong>${uPick}</strong></p>`
+          <p>You Chose <strong>${uPick}</strong></p>`;
         console.log("bum");
       } else if (
         (cPick === "scissors" && uPick === "paper") ||
         (cPick === "rock" && uPick === "scissors") ||
         (cPick === "paper" && uPick === "rock")
-        ) {
-          // if computer wins
+      ) {
+        // if computer wins
         computerScore++;
         modal.style.display = "initial";
         result.innerHTML = `
         <h1 class="text-win">You Lost!</h1>
         <img class="modal-img" src="./images/lost.jpg" alt="lost" />
         <p>Computer Chose <strong>${cPick}</strong></p>
-        <p>You Chose <strong>${uPick}</strong></p>`
+        <p>You Chose <strong>${uPick}</strong></p>`;
         // score
         cScore.innerHTML = `
         <h2>Computer Score</h2>
         <h3 id="computer-score">${computerScore}</h3>
-        `
+        `;
       } else {
         // if user wins
         userScore++;
@@ -55,21 +55,43 @@ document.addEventListener("DOMContentLoaded", () => {
         <h1 class="text-win">You Won!</h1>
         <img class="modal-img" src="./images/dab.png" alt="dab" />
         <p>Computer Chose <strong>${cPick}</strong></p>
-        <p>You Chose <strong>${uPick}</strong></p>`
+        <p>You Chose <strong>${uPick}</strong></p>`;
         // score
         uScore.innerHTML = `
         <h2>User Score</h2>
         <h3 id="computer-score">${userScore}</h3>
-        `
+        `;
       }
     });
     // console.log(option)
   });
 
-  function clearModal(e){
-    if(e.target === modal){
-      modal.style.display="none"
+  function clearModal(e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
     }
   }
-  window.addEventListener('click', clearModal)
+
+  document
+    .getElementById("restart-button")
+    .addEventListener("click", function () {
+      clearScores();
+      console.log("restart");
+    });
+
+  function clearScores() {
+    cScore.innerHTML = `
+        <h2>Computer Score</h2>
+        <h3 id="computer-score">0</h3>
+        `;
+
+    uScore.innerHTML = `
+        <h2>User Score</h2>
+        <h3 id="computer-score">0</h3>
+        `;
+
+     userScore = 0;
+     computerScore = 0;
+  }
+  window.addEventListener("click", clearModal);
 });
